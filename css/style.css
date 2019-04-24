@@ -1,0 +1,106 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.8em;
+  font-weight: 500;
+  color: #666;  /*gives it slight transparency*/
+}
+/*Making the scrolling effect*/
+.img1, .img2, .img3 {
+  position: relative;
+  opacity: 0.7; /*So that it is slightly faded*/
+  background-position: center; /*will center everything relative to the position*/
+  background-size: cover;
+  background-repeat: no-repeat;
+/*Note: fixed = parallax, scroll = normal*/
+  background-attachment: fixed;  /*creates the scrolling effect*/
+}
+
+.img1 {
+  background-image: url('../img/img5.jpg');
+  min-height: 100%;
+
+}
+.img2 {
+  background-image: url('../img/img6.jpg');
+  min-height: 400px;
+
+}
+.img3 {
+  background-image: url('../img/img7.jpg');
+  min-height: 400px;
+
+}
+
+.section {  /*unifroming each section*/
+  text-align: center; /*best practice is to centre text*/
+  padding: 20px 80px;
+
+}
+.section-light {             /*this is by default light*/
+  background-color: #f4f4f4f4;
+  color: black;
+}
+.section-dark {  /*It is important to section things off to create nice looking sections*/
+  background-color: #282e34;
+  color: #ddd;
+}
+
+.caption {
+    position: absolute;
+    text-align: center;
+    top: 24%;
+    color: white;
+    margin-left: 13px;
+    font-size: 31px;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+}
+.caption .border {
+  background-color: #111;
+  color: white;
+  padding: 20px;
+}
+.caption .border .trans{
+  background-color: transparent;
+
+}
+
+.clock {
+  display: flex;
+  justify-content: flex-end;
+  flex: 1;
+  align-items: center;
+  margin: -19px auto;
+}
+.clock-face {
+  align-items: center;
+  height: 150px;
+  width: 150px;
+  border: 6px solid black;
+  border-radius: 50%;
+  position: relative;
+  padding: 9px;
+  transform: translateY(42px); /* account for the height of the clock hands */
+  margin-right: 200px;
+}
+.hand {
+  width: 46%;
+  height: 5px;
+  background: black;
+  top: 50%;
+  position: absolute;
+  transform-origin: 100%;  /*by default it will begin on 50% of the cross access but this will allow you to manipulate that*/
+  transform: rotate(90deg);   /*So that it starts at 12 o'clock*/
+  transition: all 0.05s;  /*When we rotate it will transition itself*/
+  transition-timing-function: cubic-bezier(0.29, 2.7, 0.58, 1);
+
+}
+@media(max-width:568px) {
+  .img1, .img2, .img3 {
+    background-attachment: scroll;
+    }
+  }
+
+}
